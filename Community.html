@@ -1,0 +1,324 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillSwap – Community Hub</title>
+  <link rel="stylesheet" href="Community.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="Community.css"/>
+
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="hamburger" id="hamburgerBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <div class="nav-icon">
+                    <img src="logo.png" alt="SkillSwap Logo" style="width: 38px; height: 38px; object-fit: contain;">
+                    <span class="nav-brand">SkillSwap</span>
+                </div>
+            </div>
+        </nav>
+        </div>
+        <div class="topbar-actions">
+            <div class="notif-wrapper">
+                <span class="material-icons" id="notifIcon">notifications</span>
+                <span id="notifBadge" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:11px;font-weight:700;color:white;display:none;align-items:center;justify-content:center;font-family:Sora,sans-serif;border:2px solid #0d1117;z-index:10;"></span>
+
+                <!-- NOTIFICATION DROPDOWN -->
+                <div class="dropdown" id="notifDropdown">
+                    <div>No new notifications</div>
+                    <div id="viewAllBtn">View All Notifications</div>
+                </div>
+            </div>
+
+
+            <div class="profile-wrapper">
+                <div class="user" id="profileIcon">A</div>
+
+                <div class="dropdown" id="dropdownMenu">
+                 <div id="profileBtn">
+                     <span class="material-icons">person</span> My Profile
+                 </div>
+                    <div id="signOutBtn">
+                     <span class="material-icons">logout</span> Sign out
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="layout">
+        <nav class="sidebar" id="sidebar">
+  <h2 class="logo">SkillSwap</h2>
+  <ul>
+    <li>
+      <a href="Dashboard.html">
+        <span class="material-icons">home</span>
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="exchange.html">
+        <span class="material-icons">swap_horiz</span>
+        Skill Exchange
+      </a>
+    </li>
+    <li class="active">
+      <a href="Community.html">
+        
+        <span class="material-icons">group</span>
+        Community
+        
+        <span class="dot"></span>
+      </a>
+    </li>
+    <li>
+      <a href="resources.html">
+        <span class="material-icons">menu_book</span>
+        Resources
+      </a>
+    </li>
+    <li>
+      <a href="profile.html">
+        <span class="material-icons">person</span>
+        Profile
+      </a>
+    </li>
+  </ul>
+</nav>
+        <main class="main">
+            <div class="content-wrap">
+                <div class="page-header">
+                    <h1>Community Hub</h1>
+                    <p>Connect, collabrate with fellow skill with anthausiasts. Share your journey and learn form other.</p>
+                </div>
+
+                <div class="composer">
+                    <div class="composer-row">
+                        <div class="avatar-md">B</div>
+                        <textarea placeholder="Share your thoughts, questions and experience..."></textarea>
+                        <div class="composer-resize-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+                                <polyline points="15 3 21 3 21 9"/>
+                                <polyline points="9 21 3 21 3 15"/>
+                                <line x1="21" y1="3" x2="14" y2="10"/>
+                                <line x1="3" y1="21" x2="10" y2="14"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="composer-footer">
+                        <div class="tags-row">
+                            <span class="tag">All Topics</span>
+                            <span class="tag">General</span>
+                            <span class="tag">Questions</span>
+                            <span class="tag">Feedback</span>
+                            <span class="tag">Success Stories</span>
+                            <span class="tag">Tips &amp; Tricks</span>
+                        </div>
+                        <button class="btn-create">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Create Post
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-bar">
+                    <div class="search-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                        <input type="text" placeholder="Search post....">
+                    </div>
+                    <button class="sort-btn">
+                        Newest First
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="topic-row">
+                    <span class="topic-tag active">All Topics</span>
+                    <span class="topic-tag">General</span>
+                    <span class="topic-tag">Questions</span>
+                    <span class="topic-tag">Feedback</span>
+                    <span class="topic-tag">Success Stories</span>
+                    <span class="topic-tag">Tips &amp; Tricks</span>
+                </div>
+                <div class="posts-list">
+                    <div class="post-card">
+                        <div class="post-header">
+                            <div class="avatar-md" style="background: linear-gradient(135deg, #4d8eff, #7b5fff)">K</div>
+                            <div class="post-meta">
+                                <span class="post-author">Khadija Rafique</span>
+                                <span class="post-time">Apr 11, 08:40 AM</span>
+                            </div>
+                            <span class="post-topic-badge">Questions</span>
+                        </div>
+                        <div class="post-body">I have Query in Python</div>
+                        <div class="post-actions">
+                            <button class="action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                                1
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="post-card">
+                        <div class="post-header">
+                            <div class="avatar-md" style="background: linear-gradient(135deg, #4d8eff, #7b5fff);">A</div>
+                            <div class="post-meta">
+                                <span class="post-author">Anam Ansari</span>
+                                <span class="post-time">Apr 18, 12:18 PM </span>
+                            </div>
+                            <span class="post-topic-badge">General</span>
+                        </div>
+                        <div class="post-body">Good to see All of you guys</div>
+                        <div class="post-actions">
+                            <button class="action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                1
+                            </button>
+                            <button class="action-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="post-card">
+                        <div class="post-header">
+                            <div class="avatar-md" style="background: linear-gradient(135deg, #4d8eff, #7b5fff);">Z</div>
+                            <div class="post-meta">
+                                <span class="post-author">Zoha Majeed</span>
+                                <span class="post-time">May 2, 10:02AM</span>
+                            </div>
+                            <span class="post-topic-badge">Question</span>
+                        </div>
+                        <div class="post-body">I have query in Phython.</div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                    4
+                                </button>
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    3
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar-md" style="background: linear-gradient(135deg, #4d8eff, #7b5fff);">A</div>
+                                <div class="post-meta">
+                                    <span class="post-author">Areeba</span>
+                                    <span class="post-time">Feb 25, 01:54 PM</span>
+                                </div>
+                                <span class="post-topic-badge">General</span>
+                            </div>
+                            <div class="post-body">waiting for the java</div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                    12
+                                </button>
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    4
+                                </button>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar-md" style="background: linear-gradient(135deg, #4d8eff, #7b5fff);">Z</div>
+                                <div class="post-meta">
+                                    <span class="post-author">Zain</span>
+                                    <span class="post-time">Mar 24, 03:50 PM</span>
+                                </div>
+                                <span class="post-topic-badge">General</span>
+                            </div>
+                            <div class="post-body">Hey Khadija</div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                    3
+                                </button>
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    2
+                                </button>
+                            </div>
+                        </div>
+                        <div class="post-card">
+                            <div class="post-header">
+                                <div class="avatar-md" style="background: linear-gradient(135deg, #4d8eff, #7b5fff);">U</div>
+                                <div class="post-meta">
+                                    <span class="post-author">Umer</span>
+                                    <span class="post-time">Mar 28, 06:06 AM</span>
+                                </div>
+                                <span class="post-topic-badge">General</span>
+                            </div>
+                            <div class="post-body">Hellooo</div>
+                            <div class="post-actions">
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                    0
+                                </button>
+                                <button class="action-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    1
+                                </button>
+                            </div>
+                        </div>
+                        <div class="empty-state" style="display:none;">
+                        <div class="empty-icon">👋</div>
+                            <h3>Community is quiet</h3>
+                            <p>Be the first to start a conversation!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+    <script src="Community.js"></script>
+    <script src="notif-badge.js"></script>
+
+</body>
+</html>

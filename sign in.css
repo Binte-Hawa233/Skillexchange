@@ -1,0 +1,763 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "sora", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0f141b;
+  color: white;
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+    width: 100%;
+    height: 65px;
+    background: #0d1117;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    display: block;
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    border-radius: 80%;
+}
+
+.logo span {
+    font-family: 'sora', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #cbd5e1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.btn-nav {
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: white;
+}
+
+/* ===================== LAYOUT ===================== */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  min-height: 500px;
+  margin: auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
+
+/* ===================== LEFT SIDE ===================== */
+.left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+}
+
+/* ===================== RIGHT SIDE ===================== */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideRight 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===================== CARD ===================== */
+.card {
+  padding: 35px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card h2 {
+  font-family: Sora, sans-serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.card p {
+  font-family: Sora, sans-serif;
+  font-size: 12px;
+  color: white;
+  margin-bottom: 18px;
+  text-align: center;
+  width: 100%;
+}
+
+.card span {
+  color: #5f8ef3;
+}
+
+.card p a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.card p a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* ===================== INPUT ===================== */
+.input {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.input input::placeholder {
+  color: white;
+}
+
+.input i {
+  color: white;
+  margin-right: 10px;
+}
+
+.input input {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+}
+
+.input:focus-within {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #3b82f6;
+  transition: 0.3s;
+}
+
+/* ===================== ERROR ===================== */
+.error {
+  color: #ff4d4d;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 12px;
+  display: block;
+  font-family: Sora, sans-serif;
+}
+
+/* ===================== CHECKBOX ===================== */
+.check label {
+  color: white;
+}
+
+.check {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Sora, sans-serif;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.left-check {
+  display: flex;
+  align-items: center;
+  color: #94a3b8;
+}
+
+.left-check input {
+  margin-right: 6px;
+}
+
+.forgot {
+  color: #4da0e4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot:hover {
+  color: #3877fd;
+  text-decoration: underline;
+}
+
+.check input {
+  margin-right: 6px;
+}
+
+.check input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  margin-right: 6px;
+}
+
+.check input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-size: 12px;
+  color: #fff;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+}
+
+.check input[type="checkbox"]:checked {
+  border-color: #f5f5f7;
+  box-shadow: 0 0 5px #9dbdf0;
+}
+
+.check input[type="checkbox"]:hover {
+  border-color: #3b82f6;
+}
+
+.check a {
+  color: #4da0e4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.check a:hover {
+  color: #3877fd;
+  text-decoration: underline;
+}
+
+/* ===================== BUTTON ===================== */
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 18px;
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.signup-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ===================== LIGHT MODE ===================== */
+.light-mode {
+  background: #f1f5f9;
+  color: #020617;
+}
+
+.light-mode .card {
+  background: rgba(0, 0, 0, 0.05);
+  color: black;
+}
+
+.light-mode .input {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode input {
+  color: black;
+}
+
+.light-mode input::placeholder {
+  color: #555;
+}
+
+.light-mode .navbar {
+  background: #e2e8f0;
+}
+
+.light-mode .nav a {
+  color: black;
+}
+
+/* Smooth transition for theme toggle */
+body,
+.card,
+.input,
+.navbar {
+  transition: all 0.4s ease;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ---- Large Desktop: 1280px+ ---- */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+    padding: 50px;
+  }
+
+  .left img {
+    max-width: 520px;
+  }
+
+  .card {
+    max-width: 400px;
+    padding: 40px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+  }
+}
+
+/* ---- Small Desktop / Laptop: 1024px – 1279px ---- */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .container {
+    padding: 36px;
+    gap: 20px;
+  }
+
+  .left img {
+    max-width: 420px;
+  }
+
+  .card {
+    max-width: 340px;
+  }
+}
+
+/* ---- Tablet Landscape: 769px – 1023px ---- */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .container {
+    padding: 28px;
+    gap: 16px;
+    min-height: auto;
+    margin-top: 60px;
+  }
+
+  .left img {
+    max-width: 320px;
+  }
+
+  .card {
+    max-width: 320px;
+    padding: 28px;
+  }
+
+  .card h2 {
+    font-size: 20px;
+  }
+
+  .logo span {
+    font-size: 18px;
+  }
+
+  .nav a {
+    margin-left: 10px;
+    font-size: 13px;
+  }
+
+  .btn-nav {
+    padding: 5px 11px;
+    font-size: 13px;
+  }
+}
+
+/* ---- Tablet Portrait: 481px – 768px ---- */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 12px 20px;
+    height: 58px;
+  }
+
+  .logo span {
+    font-size: 16px;
+  }
+
+  .logo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav a {
+    margin-left: 10px;
+    font-family: Sora, sans-serif;
+    font-size: 13px;
+  }
+
+  .btn-nav {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  /* Main layout stacks vertically */
+  .main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+  /* Hide illustration on tablet portrait */
+  .left {
+    display: none;
+  }
+
+  /* Container becomes a simple wrapper */
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    min-height: auto;
+    padding: 24px 16px;
+    margin-top: 30px;
+    border-radius: 16px;
+  }
+
+  .right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+    padding: 24px;
+  }
+
+  .check {
+    font-family: Sora, sans-serif;
+    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}
+
+/* ---- Mobile Large: 426px – 480px ---- */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 14px;
+    height: 54px;
+  }
+
+  .logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo span {
+    font-size: 15px;
+  }
+
+  .nav a {
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  .btn-nav {
+    padding: 4px 9px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 20px 14px;
+    margin-top: 24px;
+    border-radius: 14px;
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .card h2 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+
+  .input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 7px;
+  }
+
+  .input input {
+    font-size: 13px;
+  }
+
+  .signup-btn {
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 14px;
+  }
+
+  .check {
+    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .error {
+    font-size: 11px;
+  }
+}
+
+/* ---- Mobile Standard: 376px – 425px ---- */
+@media (max-width: 425px) {
+  .navbar {
+    padding: 0 12px;
+    height: 52px;
+  }
+
+  .logo span {
+    font-size: 14px;
+  }
+
+  .logo img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .container {
+    width: 96%;
+    padding: 18px 12px;
+    margin-top: 20px;
+  }
+
+  .card {
+    padding: 18px 14px;
+  }
+
+  .card h2 {
+    font-size: 17px;
+  }
+
+  .card p {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .input {
+    padding: 9px 10px;
+    margin-bottom: 14px;
+  }
+
+  .input input {
+    font-size: 12px;
+  }
+
+  .input i {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  .signup-btn {
+    padding: 10px;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  .check {
+    font-size: 9px;
+  }
+
+  .check input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ---- Mobile Small: 320px – 375px ---- */
+@media (max-width: 375px) {
+  .navbar {
+    padding: 0 10px;
+    height: 50px;
+  }
+
+  .logo span {
+    font-size: 13px;
+  }
+
+  .logo img {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Keep Sign In link visible — just smaller */
+  .nav a:not(.btn-nav) {
+    display: inline;
+    font-size: 11px;
+    margin-left: 6px;
+  }
+
+  .container {
+    width: 98%;
+    padding: 16px 10px;
+    margin-top: 16px;
+    border-radius: 12px;
+  }
+
+  .card {
+    padding: 16px 12px;
+    border-radius: 10px;
+  }
+
+  .card h2 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .input {
+    padding: 8px 9px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+  }
+
+  .input input {
+    font-size: 12px;
+  }
+
+  .signup-btn {
+    padding: 9px;
+    font-size: 12px;
+    margin-top: 10px;
+    border-radius: 7px;
+  }
+
+  .error {
+    font-size: 10px;
+  }
+
+  .check {
+    font-size: 9px;
+  }
+
+  .forgot {
+    font-size: 9px;
+  }
+}
+
+/* ---- Ultra-small (below 320px) ---- */
+@media (max-width: 320px) {
+  .logo span {
+    display: none;
+  }
+
+  .btn-nav {
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+
+  .card {
+    padding: 14px 10px;
+  }
+
+  .card h2 {
+    font-size: 15px;
+  }
+
+  .signup-btn {
+    font-size: 11px;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillSwap – Skill Exchange</title>
+  <link rel="stylesheet" href="exchange.css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    .notif-wrapper { position: relative; }
+    #notifBadge {
+      position: absolute; top: -6px; right: -6px;
+      width: 18px; height: 18px; background: #ef4444;
+      border-radius: 50%; font-size: 11px; font-weight: 700;
+      color: white; display: none; align-items: center;
+      justify-content: center; font-family: 'Sora', sans-serif;
+      border: 2px solid #0d1117; z-index: 10;
+    }
+    .dropdown-notif-item {
+      display: flex !important; align-items: flex-start !important;
+      gap: 10px; padding: 12px 14px !important; border-radius: 8px;
+      font-size: 14px; color: #e0e6f0; width: 100%;
+      cursor: default !important; border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .dropdown-notif-item:hover { background: #222a35; }
+    #notifDropdown { min-width: 300px; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="menu-btn" id="hamburgerBtn"><span class="material-icons">menu</span></div>
+    <div class="nav-logo">
+      <img src="logo.png" alt="SkillSwap Logo"/>
+      <span>SkillSwap</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="notif-wrapper">
+      <span class="material-icons" id="notifIcon">notifications</span>
+      <span id="notifBadge"></span>
+      <div class="dropdown" id="notifDropdown">
+        <div id="viewAllBtn"><span class="material-icons" style="font-size:16px">open_in_new</span> View All Notifications</div>
+      </div>
+    </div>
+    <div class="profile-wrapper">
+      <div class="user" id="profileIcon">A</div>
+      <div class="dropdown" id="dropdownMenu">
+        <div id="profileBtn">
+          <span class="material-icons">person</span> My Profile
+        </div>
+        <div id="signOutBtn">
+          <span class="material-icons">logout</span> Sign out
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="container">
+  <div class="sidebar" id="sidebar">
+    <h2 class="logo">SkillSwap</h2>
+    <ul>
+      <li><a href="Dashboard.html"><span class="material-icons">home</span>Dashboard</a></li>
+      <li class="active"><a href="exchange.html"><span class="material-icons">swap_horiz</span>Skill Exchange</a></li>
+      <li><a href="Community.html"><span class="material-icons">groups</span>Community</a></li>
+      <li><a href="resources.html"><span class="material-icons">menu_book</span>Resources</a></li>
+      <li><a href="profile.html"><span class="material-icons">person</span>Profile</a></li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="page-header">
+      <div class="header-left">
+        <h1>Skill Exchange Network</h1>
+        <p>Connect with people who want to share their skills and learn from you.</p>
+      </div>
+      <div class="header-btns">
+        <button class="btn-filter" id="toggleFilter"><span class="material-icons">filter_alt</span>Show Filters</button>
+        <button class="btn-matches" id="showMatchesBtn"><span class="material-icons">star_border</span>Show Matches</button>
+      </div>
+    </div>
+
+    <div class="filter-box" id="filterBox" style="display:none;">
+      <div class="filter-header">
+        <h3><span class="material-icons">filter_alt</span>Filter Options</h3>
+        <span class="material-icons close-filter" id="closeFilter">close</span>
+      </div>
+      <div class="filter-inputs">
+        <div class="filter-group">
+          <label><span class="material-icons">person</span>I can teach</label>
+          <div class="input-wrap"><span class="material-icons">search</span><input type="text" id="teachFilter" placeholder="Any skill"/></div>
+        </div>
+        <div class="filter-group">
+          <label><span class="material-icons">menu_book</span>I want to learn</label>
+          <div class="input-wrap"><span class="material-icons">search</span><input type="text" id="learnFilter" placeholder="Any skill"/></div>
+        </div>
+        <div class="filter-group">
+          <label><span class="material-icons">location_on</span>Location</label>
+          <div class="input-wrap"><span class="material-icons">location_on</span><input type="text" id="locationFilter" placeholder="Any location"/></div>
+        </div>
+      </div>
+      <div class="filter-actions">
+        <button class="btn-reset" id="resetFilter">Reset</button>
+        <button class="btn-apply" id="applyFilter">Apply Filters</button>
+      </div>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid">
+
+      <div class="user-card" data-name="Khadija Rafique" data-role="Web Developer" data-teach="HTML,CSS,JS" data-learn="Python">
+        <div class="card-top">
+          <div class="card-avatar"><span class="material-icons">person</span><span class="online-dot"></span></div>
+          <div class="card-info"><h4>Khadija Rafique</h4><p>Web Developer</p></div>
+        </div>
+        <div class="card-skills">
+          <p><span class="material-icons">person</span> Can Teach:</p>
+          <div class="skill-tags">
+            <span class="skill-tag teach">HTML</span>
+            <span class="skill-tag teach">CSS</span>
+            <span class="skill-tag teach">JS</span>
+          </div>
+          <p><span class="material-icons">menu_book</span> Wants to Learn:</p>
+          <div class="skill-tags"><span class="skill-tag learn">Python</span></div>
+        </div>
+      </div>
+
+      <div class="user-card" data-name="Aqsa Mobeen" data-role="Graphic Designer" data-teach="Graphic Design" data-learn="UI/UX">
+        <div class="card-top">
+          <div class="card-avatar"><span class="material-icons">person</span><span class="online-dot"></span></div>
+          <div class="card-info"><h4>Aqsa Mobeen</h4><p>Graphic Designer</p></div>
+        </div>
+        <div class="card-skills">
+          <p><span class="material-icons">person</span> Can Teach:</p>
+          <div class="skill-tags"><span class="skill-tag teach">Graphic Design</span></div>
+          <p><span class="material-icons">menu_book</span> Wants to Learn:</p>
+          <div class="skill-tags"><span class="skill-tag learn">UI/UX</span></div>
+        </div>
+      </div>
+
+      <div class="user-card" data-name="Anam Ansari" data-role="Frontend Developer" data-teach="React" data-learn="Node.js">
+        <div class="card-top">
+          <div class="card-avatar"><span class="material-icons">person</span><span class="online-dot"></span></div>
+          <div class="card-info"><h4>Anam Ansari</h4><p>Frontend Developer</p></div>
+        </div>
+        <div class="card-skills">
+          <p><span class="material-icons">person</span> Can Teach:</p>
+          <div class="skill-tags"><span class="skill-tag teach">React</span></div>
+          <p><span class="material-icons">menu_book</span> Wants to Learn:</p>
+          <div class="skill-tags"><span class="skill-tag learn">Node.js</span></div>
+        </div>
+      </div>
+
+      <div class="user-card" data-name="Zoha Majeed" data-role="UI/UX Designer" data-teach="Figma" data-learn="Python">
+        <div class="card-top">
+          <div class="card-avatar"><span class="material-icons">person</span><span class="online-dot"></span></div>
+          <div class="card-info"><h4>Zoha Majeed</h4><p>UI/UX Designer</p></div>
+        </div>
+        <div class="card-skills">
+          <p><span class="material-icons">person</span> Can Teach:</p>
+          <div class="skill-tags"><span class="skill-tag teach">Figma</span></div>
+          <p><span class="material-icons">menu_book</span> Wants to Learn:</p>
+          <div class="skill-tags"><span class="skill-tag learn">Python</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="no-matches" id="noMatchesBox">
+      <div class="no-match-icon"><span class="material-icons">person_search</span></div>
+      <h2>No matches found</h2>
+      <p>We couldn't find any skill matches. Try adjusting your profile skills or browse all users instead.</p>
+      <button class="browse-btn" id="browseUsersBtn">Browse All Users</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>Schedule Exchange</h2>
+      <span class="modal-close" id="modalClose"><span class="material-icons">close</span></span>
+    </div>
+    <div class="modal-user">
+      <div class="modal-avatar">
+        <span class="material-icons">person</span>
+        <span class="modal-online-dot"></span>
+      </div>
+      <div>
+        <h3 id="modalName">User Name</h3>
+        <p id="modalRole">Skill Exchange Partner</p>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label><span class="material-icons">chat_bubble_outline</span>Message (Optional)</label>
+      <textarea id="modalMessage" placeholder="Hi, I'd like to exchange..."></textarea>
+    </div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label><span class="material-icons">calendar_today</span>Date</label>
+        <input type="date" id="modalDate"/>
+      </div>
+      <div class="modal-field">
+        <label><span class="material-icons">schedule</span>Time</label>
+        <input type="time" id="modalTime"/>
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Duration (minutes)</label>
+      <select id="modalDuration">
+        <option>30 minutes</option>
+        <option>45 minutes</option>
+        <option>60 minutes</option>
+      </select>
+    </div>
+    <div class="modal-info">
+      <span class="material-icons">videocam</span>
+      A secure video meeting link will be generated automatically
+    </div>
+    <div class="modal-btns">
+      <button class="modal-cancel" id="modalCancel">Cancel</button>
+      <button class="modal-schedule" id="modalSchedule">Schedule Exchange</button>
+    </div>
+  </div>
+</div>
+
+<script src="exchange.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkillSwap – Notifications</title>
+    <link rel="stylesheet" href="notification.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+      /* Notification badge */
+      .notif-wrapper { position: relative; }
+      #notifBadge {
+        position: absolute;
+        top: -6px; right: -6px;
+        width: 18px; height: 18px;
+        background: #ef4444;
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 700;
+        color: white;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Sora', sans-serif;
+        border: 2px solid #0d1117;
+        z-index: 10;
+      }
+      /* Unread notif item highlight */
+      .notif-item:not(.read) {
+        border-left: 3px solid #38bdf8;
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="menu-btn">
+                <span class="material-icons">menu</span>
+            </div>
+            <div class="nav-logo">
+                <img src="logo.png" alt="SkillSwap Logo" />
+                <span>SkillSwap</span>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="notif-wrapper">
+                <span class="material-icons" id="notifIcon">notifications</span>
+                <span id="notifBadge" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:11px;font-weight:700;color:white;display:none;align-items:center;justify-content:center;font-family:Sora,sans-serif;border:2px solid #0d1117;z-index:10;"></span>
+
+                <!-- NOTIFICATION DROPDOWN -->
+                <div class="dropdown" id="notifDropdown">
+                    <div>No new notifications</div>
+                    <div id="viewAllBtn">View All Notifications</div>
+                </div>
+            </div>
+
+            <div class="profile-wrapper">
+                <div class="user" id="profileIcon">A</div>
+                <div class="dropdown" id="dropdownMenu">
+                    <div id="profileBtn">
+                        <span class="material-icons">person</span> My Profile
+                    </div>
+                    <div id="signOutBtn">
+                        <span class="material-icons">logout</span> Sign out
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2 class="logo">SkillSwap</h2>
+            <ul>
+                <li><a href="Dashboard.html"><span class="material-icons">home</span> Dashboard</a></li>
+                <li><a href="exchange.html"><span class="material-icons">swap_horiz</span> Skill Exchange</a></li>
+                <li><a href="community.html"><span class="material-icons">groups</span> Community</a></li>
+                <li><a href="resources.html"><span class="material-icons">menu_book</span> Resources</a></li>
+                <li><a href="profile.html"><span class="material-icons">person</span> Profile</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <div class="notification-container">
+
+                <div class="notification-header">
+                    <div class="title">
+                        <span class="material-icons">notifications</span>
+                        <h2>Notifications</h2>
+                    </div>
+                    <button class="mark-read">Mark all as read</button>
+                </div>
+
+                <!-- Empty state (hidden if notifications exist) -->
+                <div class="notification-card">
+                    <span class="material-icons">notifications</span>
+                    <p>No notifications yet</p>
+                    <small>Your notifications will appear here</small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="notification.js" defer></script>
+    <script src="notif-badge.js"></script>
+
+</body>
+</html>

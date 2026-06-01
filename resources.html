@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSwap</title>
+     <link rel="stylesheet" href="resources.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+ <!-- GOOGLE FONT -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    /> -->
+
+    <!-- MATERIAL ICONS -->
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    /> -->
+
+
+  </head>
+  <body>
+
+   <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="nav-left">
+            <div class="menu-btn" id="hamburgerBtn">
+                    <span class="material-icons">menu</span>
+             </div>
+             <div class="nav-logo">
+                    <img src="logo.png" alt="SkillSwap Logo" />
+                    <span>SkillSwap</span>
+             </div>
+         </div>
+         
+        <div class="nav-right">
+            <div class="notif-wrapper">
+                <span class="material-icons" id="notifIcon">notifications</span><span id="notifBadge" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:11px;font-weight:700;color:white;display:none;align-items:center;justify-content:center;font-family:Sora,sans-serif;border:2px solid #0d1117;z-index:10;"></span>
+
+                <!-- NOTIFICATION DROPDOWN -->
+                <div class="dropdown" id="notifDropdown">
+                    <div>No new notifications</div>
+                    <div id="viewAllBtn">View All Notifications</div>
+                </div>
+            </div>
+            
+
+            <div class="profile-wrapper">
+                <div class="user" id="profileIcon">A</div>
+
+                <div class="dropdown" id="dropdownMenu">
+                 <div id="profileBtn">
+                     <span class="material-icons">person</span> My Profile
+                 </div>
+                    <div id="signOutBtn">
+                     <span class="material-icons">logout</span> Sign out
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        
+
+    </nav>
+    <div class="overlay" id="overlay"></div>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo">SkillSwap</h2>
+        <ul>
+            <li>
+                <a href="Dashboard.html">
+                     <span class="material-icons">home</span> 
+                     Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="exchange.html">
+                     <span class="material-icons">swap_horiz</span> 
+                     Skill Exchange
+                </a>
+            </li>
+            <li>
+                <a href="community.html">
+                     <span class="material-icons">groups</span> 
+                     Community
+                </a>
+            </li>
+            <li class="active" data-section="resources">
+                <span class="material-icons">menu_book</span> 
+                Resource
+            </li>
+            <li>
+                <a href="profile.html">
+                     <span class="material-icons">person</span> 
+                     Profile
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      
+
+      <!-- Content -->
+      <div class="content">
+        <!-- BIG CARD (MATCH SS) -->
+        <div class="resource-card">
+          <div>
+            <h1><span>Community Resources</span></h1>
+            <p>
+              Discover and share valuable learning materials with the SkillSwap
+              community.
+            </p>
+          </div>
+          <button id="openPopupBtn">Share Resource</button>
+        </div>
+
+        <!-- BIG FILTER BAR -->
+        <div class="filter-bar">
+          <div class="left">
+            <label>Filter by skill</label>
+            <select id="skillFilter" onchange="filterCards()">
+              <option value="all">All Skills</option>
+              <option value="google">Google</option>
+              <option value="python">Python</option>
+              <option value="cooking">Cooking</option>
+              <option value="javascript">Javascript</option>
+              <option value="coding">Coding</option>
+              <option value="microsoft">Microsoft</option>
+              <option value="amazon">Amazon</option>
+            </select>
+          </div>
+
+          <div class="right" id="resourceCount">7 resources found</div>
+        </div>
+
+        <!-- ===== CARDS SECTION START ===== -->
+        <div class="cards-container">
+          <!-- Card 1 -->
+          <div class="card" data-skill="google">
+            <div class="card-header">
+              <div class="avatar">A</div>
+              <div>
+                <h4>Aditya</h4>
+                <p>Feb 26, 2026</p>
+              </div>
+            </div>
+
+            <h2 class="company">Google</h2>
+            <p class="role">It is Browser</p>
+
+            <div class="tags">
+              <span>Networking</span>
+            </div>
+
+            <div class="card-actions">
+              <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+
+              <button onclick="toggleComment(this)">💬 Comment</button>
+            </div>
+
+            <div class="comment-box" style="display: none">
+              <input type="text" placeholder="Write a comment..." />
+              <button onclick="postComment(this)">Post</button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card" data-skill="python">
+            <div class="card-header">
+              <div class="avatar">S</div>
+              <div>
+                <h4>Sara</h4>
+                <p>Mar 02, 2026</p>
+              </div>
+            </div>
+
+            <h2 class="company">Python</h2>
+            <p class="role">Learn Python</p>
+
+            <div class="tags">
+              <span> Python</span>
+            </div>
+            <div class="card-actions">
+              <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+
+              <button onclick="toggleComment(this)">💬 Comment</button>
+            </div>
+
+            <div class="comment-box" style="display: none">
+              <input type="text" placeholder="Write a comment..." />
+              <button onclick="postComment(this)">Post</button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card" data-skill="cooking">
+            <div class="card-header">
+              <div class="avatar">K</div>
+              <div>
+                <h4>Khadija</h4>
+                <p>jan 02, 2026</p>
+              </div>
+            </div>
+
+            <h2 class="company">Cooking Tips</h2>
+            <p class="role">I am good in cooking</p>
+
+            <div class="tags">
+              <span>Cooking</span>
+            </div>
+
+            <div class="card-actions">
+              <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+
+              <button onclick="toggleComment(this)">💬 Comment</button>
+            </div>
+
+            <div class="comment-box" style="display: none">
+              <input type="text" placeholder="Write a comment..." />
+              <button onclick="postComment(this)">Post</button>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card" data-skill="javascript">
+            <div class="card-header">
+              <div class="avatar">A</div>
+              <div>
+                <h4>Aqsa</h4>
+                <p>april 02, 2026</p>
+              </div>
+            </div>
+
+            <h2 class="company">Javascript Interview Handbook</h2>
+            <p class="role">All concepts of Javascript are covered</p>
+
+            <div class="tags">
+              <span>Javascript</span>
+            </div>
+            <div class="card-actions">
+              <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+
+              <button onclick="toggleComment(this)">💬 Comment</button>
+            </div>
+
+            <div class="comment-box" style="display: none">
+              <input type="text" placeholder="Write a comment..." />
+              <button onclick="postComment(this)">Post</button>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card" data-skill="coding">
+            <div class="card-header">
+              <div class="avatar">Z</div>
+              <div>
+                <h4>Zoha</h4>
+                <p>Mar 26, 2025</p>
+              </div>
+            </div>
+
+            <h2 class="company">Coding</h2>
+            <p class="role">I am good in Coding</p>
+
+            <div class="tags">
+              <span>Javascript, React.js </span>
+            </div>
+
+            <div class="card-actions">
+              <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+
+              <button onclick="toggleComment(this)">💬 Comment</button>
+            </div>
+
+            <div class="comment-box" style="display: none">
+              <input type="text" placeholder="Write a comment..." />
+              <button onclick="postComment(this)">Post</button>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card" data-skill="microsoft">
+            <div class="card-header">
+              <div class="avatar">S</div>
+              <div>
+                <h4>Saim</h4>
+                <p>Feb 23, 2025</p>
+              </div>
+            </div>
+
+            <h2 class="company">Microsoft</h2>
+            <p class="role">Software Engineer</p>
+
+            <div class="tags">
+              <span>System Design</span>
+            </div>
+
+            <div class="card-actions">
+              <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+              <button onclick="toggleComment(this)">💬 Comment</button>
+            </div>
+
+            <div class="comment-box" style="display: none">
+              <input type="text" placeholder="Write a comment..." />
+              <button onclick="postComment(this)">Post</button>
+            </div>
+          </div>
+
+          
+          <!-- Card 7 -->
+<div class="card" data-skill="amazon">
+  <div class="card-header">
+    <div class="avatar">K</div>
+    <div>
+      <h4>Kiran</h4>
+      <p>Apr 10, 2025</p>
+    </div>
+  </div>
+
+  <h2 class="company">Amazon</h2>
+  <p class="role">Backend Developer</p>
+
+  <div class="tags">
+    <span>Node.js</span>
+    <span>MongoDB</span>
+  </div>
+
+  <div class="card-actions">
+    <button onclick="likePost(this)">
+  <span class="material-icons">favorite_border</span>
+  <span class="like-count">0</span>
+</button>
+
+    
+    <button onclick="toggleComment(this)">💬 Comment</button>
+  </div>
+
+  <div class="comment-box" style="display: none;">
+    <input type="text" placeholder="Write a comment..." />
+    <button onclick="postComment(this)">Post</button>
+  </div>
+</div>
+
+<!-- Resource button -->
+
+<div class="popup-overlay"> 
+  <div class="popup-box"> 
+    <!-- TOP --> 
+     <div class="popup-header"> 
+      <h2>Share a Resource</h2>
+       <span class="close-btn">×</span> 
+      </div> 
+      <!-- FORM --> 
+       <form class="resource-form">
+         <!-- TITLE --> 
+          <label>
+         <span class="material-icons">edit</span> Title</label>
+        <div class="input-icon">
+        <input
+  type="text"
+  id="resourceTitle"
+  placeholder="Awesome React Tutorial"
+/>
+          </div>
+           <!-- DESCRIPTION -->
+            <label>
+  <span class="material-icons">description</span>
+  Description
+</label>
+
+<div class="input-icon textarea-box">
+  
+
+  <textarea
+  id="resourceDescription"
+  placeholder="Brief description of the resource..."
+></textarea>
+</div>
+               <!-- URL --> 
+                <label>
+  <span class="material-icons">link</span>
+  Source URL
+</label>
+
+<div class="input-icon">
+  <span class="material-icons">link</span>
+
+  <input
+  type="text"
+  id="resourceURL"
+  placeholder="https://example.com"
+/>
+</div>
+                   <!-- SKILL -->
+                     <label>
+  <span class="material-icons">person</span>
+  Related Skills
+</label>
+
+<div class="input-icon">
+  <span class="material-icons">lightbulb</span>
+
+  <input
+  type="text"
+  id="resourceSkill"
+  placeholder="JavaScript, Design, etc."
+/>
+</div>
+                     <!-- BUTTONS -->
+                       <div class="popup-buttons">
+
+  <button type="button" class="cancel-btn">Cancel</button>
+
+  <button type="button" id="shareResourceBtn">
+    Share Resource
+  </button>
+
+</div>
+                        </form>
+                       </div>
+
+
+<script src="resources.js"></script>
+<script src="notif-badge.js"></script>
+
+<script>
+
+  // OPEN POPUP
+const openBtn = document.getElementById("openPopupBtn");
+const popup = document.querySelector(".popup-overlay");
+const closeBtn = document.querySelector(".close-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
+
+// open popup
+openBtn.addEventListener("click", () => {
+  popup.classList.add("active");
+});
+
+// close popup (× icon)
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("active");
+});
+
+// close popup (cancel button)
+cancelBtn.addEventListener("click", () => {
+  popup.classList.remove("active");
+});
+
+// close when clicking outside box
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove("active");
+  }
+});
+
+//card show after data submssion
+
+// SAVE CARDS TO LOCAL STORAGE
+function saveCards() {
+
+  const cards = [];
+
+  // GET ALL CARDS
+  document.querySelectorAll(".card").forEach((card) => {
+
+    cards.push({
+      html: card.outerHTML
+    });
+
+  });
+
+  // SAVE INTO LOCAL STORAGE
+  localStorage.setItem("resources", JSON.stringify(cards));
+
+}
+
+
+
+// UPDATE RESOURCE COUNT
+function updateResourceCount() {
+
+  const totalCards =
+    document.querySelectorAll(".card").length;
+
+  document.getElementById("resourceCount").innerText =
+    totalCards + " resources found";
+
+}
+
+// LOAD ONLY NEW SAVED CARDS
+window.addEventListener("DOMContentLoaded", () => {
+
+  const savedCards =
+    JSON.parse(localStorage.getItem("newResources"));
+
+  // IF NEW CARDS EXIST
+  if (savedCards) {
+
+    const cardsContainer =
+      document.querySelector(".cards-container");
+
+    savedCards.forEach((cardHTML) => {
+
+      cardsContainer.insertAdjacentHTML(
+        "afterbegin",
+        cardHTML
+      );
+
+    });
+
+  }
+
+  // UPDATE RESOURCE COUNT
+  updateResourceCount();
+
+});
+
+
+// SAVE ONLY NEW CARDS
+function saveCards(cardHTML) {
+
+  let savedCards =
+    JSON.parse(localStorage.getItem("newResources")) || [];
+
+  savedCards.push(cardHTML);
+
+  localStorage.setItem(
+    "newResources",
+    JSON.stringify(savedCards)
+  );
+
+}
+
+
+// UPDATE RESOURCE COUNT
+function updateResourceCount() {
+
+  const totalCards =
+    document.querySelectorAll(".card").length;
+
+  document.getElementById("resourceCount").innerText =
+    totalCards + " resources found";
+
+}
+
+// SHARE RESOURCE
+const shareBtn =
+  document.getElementById("shareResourceBtn");
+
+shareBtn.addEventListener("click", () => {
+
+  // GET VALUES
+  const title =
+    document.getElementById("resourceTitle").value;
+
+  const description =
+    document.getElementById("resourceDescription").value;
+
+  const url =
+    document.getElementById("resourceURL").value;
+
+  const skill =
+    document.getElementById("resourceSkill").value;
+
+  // VALIDATION
+  if (
+    title === "" ||
+    description === "" ||
+    url === "" ||
+    skill === ""
+  ) {
+
+    alert("Please fill all fields");
+    return;
+
+  }
+
+  // CARD CONTAINER
+  const cardsContainer =
+    document.querySelector(".cards-container");
+
+  // CREATE CARD
+  const newCard =
+    document.createElement("div");
+
+  newCard.classList.add("card");
+
+  // CARD HTML
+  newCard.innerHTML = `
+
+    <div class="card-header">
+
+      <div class="avatar">A</div>
+
+      <div>
+        <h4>You</h4>
+        <p>Just Now</p>
+      </div>
+
+    </div>
+
+    <h2 class="company">${title}</h2>
+
+    <p class="role">${description}</p>
+
+    <div class="tags">
+      <span>${skill}</span>
+    </div>
+
+    <div style="margin-top:12px;">
+
+      <a href="${url}"
+         target="_blank"
+         style="color:#38bdf8;">
+
+         Open Resource
+
+      </a>
+
+    </div>
+
+    <div class="card-actions">
+
+      <button onclick="likePost(this)">
+
+        <span class="material-icons">
+          favorite_border
+        </span>
+
+        <span class="like-count">0</span>
+
+      </button>
+
+      <button onclick="toggleComment(this)">
+        💬 Comment
+      </button>
+
+    </div>
+
+    <div class="comment-box"
+         style="display:none;">
+
+      <input type="text"
+             placeholder="Write a comment..." />
+
+      <button onclick="postComment(this)">
+        Post
+      </button>
+
+    </div>
+
+  `;
+
+  // ADD CARD
+  cardsContainer.prepend(newCard);
+
+  // SAVE CARDS
+  saveCards(newCard.outerHTML);
+
+  // UPDATE COUNT
+  updateResourceCount();
+
+  // CLOSE POPUP
+  popup.classList.remove("active");
+
+  // CLEAR FORM
+  document.getElementById("resourceTitle").value = "";
+  document.getElementById("resourceDescription").value = "";
+  document.getElementById("resourceURL").value = "";
+  document.getElementById("resourceSkill").value = "";
+
+});
+
+
+
+</script>
+  </body>
+</html>

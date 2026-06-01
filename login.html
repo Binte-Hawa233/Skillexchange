@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSwap</title>
+    <link rel="stylesheet" href="login.css" />
+
+    <!-- Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">
+        <img src="logo.png" alt="SkillSwap Logo" />
+        <span>SkillSwap</span>
+      </div>
+
+
+      
+      <div class="nav">
+        <a href="sign in.html">Sign in</a>
+        <a href="#" class="btn-nav">Sign up</a>
+      </div>
+    </div>
+
+
+
+
+    <!-- LEFT SIDE -->
+  <div class="main">
+  
+    <div class="container">
+
+      <div class="left">
+        <img src="dashpic.png" alt="SkillSwap Image" />
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="right">
+        <div class="card">
+          <h2>Create your account</h2>
+          <p>Already have an account? <a href="sign in.html">Sign in</a></p>
+
+
+         <!-- ✅ FORM START -->
+          <form id="signupForm">
+            
+         <div class="input">
+              <i class="fa fa-user"></i>
+              <input type="text" id="name" placeholder="Full Name" required>
+          </div>
+          <small class="error" id="nameError"></small>
+
+          <div class="input">
+              <i class="fa fa-envelope"></i>
+              <input type="email" id="email" placeholder="Email address" required>
+          </div>
+          <small class="error" id="emailError"></small>
+
+          <div class="input">
+              <i class="fa fa-lock"></i>
+              <input type="password" id="password" placeholder="Password (min 8 characters)" required>
+          </div>
+          <small class="error" id="passwordError"></small>
+
+          <div class="check">
+            <input type="checkbox" id="terms"required>
+            <label>
+              I agree to the 
+                <a href="comon.html">Terms of Service</a> 
+               and 
+                <a href="comon.html">Privacy Policy</a>
+            </label>
+          </div>
+          <small class="error" id="termsError"></small>
+
+          <button type="submit" class="signup-btn" id="signupBtn">Sign up</button>
+          
+          </form>
+          <!-- ✅ FORM END -->
+
+
+        </div>
+
+      </div>
+
+  </div>
+</div>
+
+
+
+<script src="login.js"></script>
+
+  </body>
+</html>

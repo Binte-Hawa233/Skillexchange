@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="profile.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSwap Profile</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+      <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="nav-left">
+            <div class="menu-btn">
+                    <span class="material-icons">menu</span>
+             </div>
+             <div class="nav-logo">
+                    <img src="logo.png" alt="SkillSwap Logo" />
+                    <span>SkillSwap</span>
+             </div>
+             
+         </div>
+         
+        <div class="nav-right">
+            <div class="notif-wrapper">
+                <span class="material-icons" id="notifIcon">notifications</span>
+                <span id="notifBadge" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:11px;font-weight:700;color:white;display:none;align-items:center;justify-content:center;font-family:Sora,sans-serif;border:2px solid #0d1117;z-index:10;"></span>
+
+                <!-- NOTIFICATION DROPDOWN -->
+                <div class="dropdown" id="notifDropdown">
+                    <div>No new notifications</div>
+                    <div id="viewAllBtn">View All Notifications</div>
+                </div>
+            </div>
+
+            
+            <div class="profile-wrapper">
+                <div class="user" id="profileIcon">A</div>
+
+                <div class="dropdown" id="dropdownMenu">
+                 <div id="profileBtn">
+                     <span class="material-icons">person</span> My Profile
+                 </div>
+                    <div id="signOutBtn">
+                     <span class="material-icons">logout</span> Sign out
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </nav>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo">SkillSwap</h2>
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                 <span class="material-icons">home</span> 
+                 Dashboard
+                </a>
+            </li>
+             <li>
+                <a href="exchange.html">
+                     <span class="material-icons">swap_horiz</span> 
+                     Skill Exchange
+                </a>
+            </li>
+            <li>
+                <a href="community.html">
+                     <span class="material-icons">groups</span> 
+                     Community
+                </a>
+            </li>
+            <li>
+                <a href="resources.html">
+                     <span class="material-icons">menu_book</span> 
+                     Resources
+                </a>
+            </li>
+            <li class="active" data-section="profile">
+                     <span class="material-icons">person</span> 
+                     Profile
+            </li>
+        </ul>
+    </div>
+
+<div class="main">
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card">
+    <div class="profile-top"></div>
+
+    <div class="profile-info">
+
+
+      
+      <div class="profile-image-wrapper">
+        <div class="profile-img" id="profileImg"></div>
+        <div class="edit-overlay">
+            <span class="material-icons">photo_camera</span>
+        </div>
+      </div>
+        <input type="file" id="imgInput" accept="image/*" hidden>
+
+
+
+      <div class="user-text">
+        <h2 id="profileName">User</h2>
+        <p id="profileEmail"></p>
+      </div>
+
+      <button id="editBtn"> ✏ Edit Profile </button>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <!-- ABOUT -->
+    <div class="card">
+      <h3><span class="dot blue"></span> About Me</h3>
+
+      <!-- VIEW -->
+      <p id="bioText">No bio yet. Add something about yourself!</p>
+
+      <!-- EDIT -->
+      <textarea id="bioInput" placeholder="Tell others about yourself..."></textarea>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="card">
+      <h3><span class="dot purple"></span> My Skills</h3>
+
+      <!-- VIEW MODE -->
+      <div id="skillsView">
+        <p><b>I Can Teach</b></p>
+        <ul id="teachList"></ul>
+
+        <p><b>I Want to Learn</b></p>
+        <ul id="learnList"></ul>
+      </div>
+
+      <!-- EDIT MODE -->
+      <div id="skillsEdit">
+
+        <p>I Can Teach</p>
+        <div class="input-group">
+          <input type="text" id="teachInput" placeholder="Add a skill">
+          <button onclick="addSkill('teach')">+</button>
+        </div>
+        <div id="teachTags" class="tags"></div>
+
+        <p>I Want to Learn</p>
+        <div class="input-group">
+          <input type="text" id="learnInput" placeholder="Add a skill">
+          <button onclick="addSkill('learn')">+</button>
+        </div>
+        <div id="learnTags" class="tags"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SAVE BUTTON -->
+  <button id="saveBtn">Save Changes</button>
+
+</div>
+</div>
+
+
+<script src="profile.js"></script>
+<script src="notif-badge.js"></script>
+
+</body>
+</html>

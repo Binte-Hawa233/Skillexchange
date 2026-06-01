@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SkillSwap Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="nav-left">
+            <div class="menu-btn">
+                    <span class="material-icons">menu</span>
+             </div>
+             <div class="nav-logo">
+                    <img src="logo.png" alt="SkillSwap Logo" />
+                    <span>SkillSwap</span>
+             </div>
+         </div>
+         
+        <div class="nav-right">
+            <div class="notif-wrapper">
+                <span class="material-icons" id="notifIcon">notifications</span>
+                <span id="notifBadge" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;background:#ef4444;border-radius:50%;font-size:11px;font-weight:700;color:white;display:none;align-items:center;justify-content:center;font-family:Sora,sans-serif;border:2px solid #0d1117;z-index:10;"></span>
+
+                <!-- NOTIFICATION DROPDOWN -->
+                <div class="dropdown" id="notifDropdown">
+                    <div>No new notifications</div>
+                    <div id="viewAllBtn">View All Notifications</div>
+                </div>
+            </div>
+
+            
+            <div class="profile-wrapper">
+                <div class="user" id="profileIcon">A</div>
+
+                <div class="dropdown" id="dropdownMenu">
+                 <div id="profileBtn">
+                     <span class="material-icons">person</span> My Profile
+                 </div>
+                    <div id="signOutBtn">
+                     <span class="material-icons">logout</span> Sign out
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+    </nav>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo">SkillSwap</h2>
+        <ul>
+            <li class="active" data-section="dashboard">
+                <span class="material-icons">home</span> Dashboard
+            </li>
+            <li>
+                <a href="exchange.html">
+                     <span class="material-icons">swap_horiz</span> 
+                     Skill Exchange
+                </a>
+            </li>
+            <li>
+                <a href="community.html">
+                     <span class="material-icons">groups</span> 
+                     Community
+                </a>
+            </li>
+            <li>
+                <a href="resources.html">
+                     <span class="material-icons">menu_book</span> 
+                     Resources
+                </a>
+            </li>
+            <li>
+                <a href="profile.html">
+                     <span class="material-icons">person</span> 
+                     Profile
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!--Main Content-->
+    <div class="main">
+        <div class="learn">
+            <div class="content-container">
+                <div class="content-section active-section" id="dashboard">
+                    <div class="text-section">
+                        <h1>Learn. <span>Teach.</span><br>Grow.</h1>
+                        <p>
+                        Connect with people who want to share their skills and 
+                        learn from other in return.No Money needed, just a 
+                        willingness to exchange knowledge.
+                        </p>
+                      <a href="exchange.html" class="swap-btn" onclick="startSwap()">Start Swapping →</a>
+                    </div>
+                         <div class="image-section">
+                            <div class="card">
+                                <img src="dashpic.png" alt="Card Image">
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+         
+            
+     
+        <div class="content-section" id="skill-exchange" style="display:none;">
+            <h2>Skill Exchange</h2>
+            <p>Here you can exchange skills with other users.</p>
+        </div>
+        <div class="content-section" id="Learning" style="display:none;">
+            <h2>Learning Hub</h2>
+        </div>
+        <div class="content-section" id="Community" style="display:none;">
+            <h2>Community</h2>
+        </div>
+        <div class="content-section" id="Resources" style="display:none;">
+            <h2>Resources</h2>
+        </div>
+        <div class="content-section" id="Profile" style="display:none;">
+            <h2>Profile</h2>
+        </div>
+
+
+        <!-- How SkillSwap Works -->
+            <div class="how">
+                <h2>How <span>SkillSwap</span> Works</h2>
+                <p>A simple three-step process to start exchanging skills with like-minded people</p>
+
+                <div class="steps">
+
+                    <div class="step-card">
+                        <span class="step-icons blue-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </span>
+                        <h3>Create Your Profile</h3>
+                        <p>
+                            List the skills you can teach and what you want to learn.
+                            Your profile helps others find you for exchanges.
+                        </p>
+                        <a href="#">Learn more →</a>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-icons purple-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <h3>Find Matches</h3>
+                        <p>
+                            Our algorithm connect you with people who have skills you want to learn and 
+                            want to learn skill you can teach.
+                        </p>
+                        <a href="#">Learn more →</a>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-icons pink-icon">
+                            <i class="fa-solid fa-right-left"></i>
+                        </span>
+                        <h3>Exchange Skills</h3>
+                        <p>
+                            Schedule session to teach and learn. Meet virtually or in person, and track your 
+                            progess over time.
+                        </p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+
+       
+
+
+        <!-- Stats -->
+            <div class="stats-wrapper">
+                 <div class="stats">
+                     <div class="stat-card">
+                        <h2 class="blue">10,000+</h2>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat-card">
+                         <h2 class="purple">5,000+</h2>
+                         <p>Skill Exchanges</p>
+                    </div>
+                    <div class="stat-card">
+                        <h2 class="pink">200+</h2>
+                         <p>Skills Available</p>
+                    </div>
+                    <div class="stat-card">
+                        <h2 class="sky">98%</h2>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                 </div>
+            </div>
+
+    <!-- What Our Users Say -->
+            <div class="testimonials">
+                <h2>What Our <span>Users</span> Say</h2>
+                <p>
+                    Don't just take our word for it - here form our community
+                </p>
+                <div class="testimonial-cards">
+                    <div class="testimonial-card">
+                        <div class="user-info">
+                            <div class="user p1">AJ</div>
+                            <div>
+                                <h3>Alex Johnson</h3>
+                                <p>Web Developer</p>
+                            </div>
+                        </div>
+                        <p>
+                            "I learned web development in excahnge for teaching Spanish.
+                            Its amazing how much you can learn whne you'r also teaching."    
+                        </p>
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="user-info">
+                            <div class="user p2">SM</div>
+                            <div>
+                                <h3>SARAH MILLER</h3>
+                                <p>Food Blogger</p>
+                            </div>
+                        </div>
+                        <p>
+                            "Skillswap helped me find a photography mentor while I shared
+                            my cooking skill. The perfect win-win!"
+                        </p>
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="user-info">
+                            <div class="user p3">MC</div>
+                            <div>
+                                <h3>MICHEAL CHEN</h3>
+                                <p>Freelance Designer</p>
+                            </div>
+                        </div>
+                        <p>
+                            "As a freelancer,I need to upskill without spending money.
+                SkillSwap was the perfect solution for me"
+                        </p>
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+
+        <!-- CTA Blue Section -->
+            <div class="cta-section">
+                <h1>Reading to start your skill exchange journey?</h1>
+                <p>
+                    Join thousands of learner and teacher growing together
+                </p>
+                <button onclick="window.location.href='exchange.html'">
+                    Browse Skills
+                </button>
+            </div>
+    </div>
+
+    
+
+     
+</div>
+</body>
+
+<script src="dashboard.js" defer></script>
+<script src="notif-badge.js"></script>
+
+
+</html>

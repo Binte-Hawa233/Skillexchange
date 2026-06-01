@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillSwap - Sign In</title>
+
+  <link rel="stylesheet" href="sign in.css" />
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="SkillSwap Logo" />
+    <span>SkillSwap</span>
+  </div>
+
+  <div class="nav">
+    <a href="sign in.html">Sign in</a>
+    <a href="login.html" class="btn-nav">Sign up</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+      <img src="dashpic.png" alt="SkillSwap Image" />
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <div class="card">
+
+        <h2>Welcome Back</h2>
+        <p>Don't have an account? <a href="login.html"> Sign up</a></p>
+
+
+        <!-- ✅ FORM START -->
+          <form id="signinForm">
+
+
+        <!-- EMAIL -->
+        <div class="input">
+          <i class="fa fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email address" required>
+        </div>
+        <small class="error" id="emailError"></small>
+
+        <!-- PASSWORD -->
+        <div class="input">
+          <i class="fa fa-lock"></i>
+          <input type="password" id="password" placeholder="Password (min 8 characters)" required>
+        </div>
+        <small class="error" id="passwordError"></small>
+
+        <!-- CHECK -->
+        <div class="check">
+          <div class="left-check">
+            <input type="checkbox" id="terms">
+            <label for="remember">Remember me</label>
+          </div>
+
+          <a href="comon.html" class="forgot">Forgot Password?</a>
+        </div>
+
+        <!-- BUTTON -->
+        <button type="submit" class="signup-btn">Sign in</button>
+
+        </form>
+          <!-- ✅ FORM END -->
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="sign in.js"></script>
+
+</body>
+</html>
